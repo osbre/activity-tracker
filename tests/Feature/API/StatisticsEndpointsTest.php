@@ -10,6 +10,11 @@ class StatisticsEndpointsTest extends TestCase
     {
         $this->get('/api/statistics')
             ->assertStatus(200)
-            ->assertJsonStructure([]);
+            ->assertJsonStructure([
+                'total_ride_distance',
+                'total_run_distance',
+                'longest_ride',
+                'longest_run',
+            ]);
     }
 }
