@@ -3,4 +3,4 @@
 use Illuminate\Support\Facades\Route;
 
 // Serve our SPA page
-Route::view('/', 'app');
+Route::view('/', 'app')->name('index');
