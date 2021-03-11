@@ -23,3 +23,15 @@ Which uses classes located under [`app/`](https://github.com/osbre/activity-trac
 
 Unlike other routes, APIs ones defined in the [`routes/api.php`](https://github.com/osbre/activity-tracker/blob/master/routes/api.php) file.
 
+
+## Ideas for improvement
+
+- Add browser tests for SPA part. [Laravel Dusk](https://laravel.com/docs/8.x/dusk) can be used.
+- Add pagination feature
+
+## Tools used
+
+- [Laravel](https://laravel.com)  - PHP framework for web artisans
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework for rapid UI development.
+- [Alpine](https://github.com/alpinejs/alpine) - Rugged, minimal framework for composing JavaScript behavior in your markup.
+
