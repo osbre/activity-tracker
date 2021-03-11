@@ -13,13 +13,18 @@ final class ActivityController extends Controller
 {
     public function index(): JsonResponse
     {
+        $longestRide = ActivityQueries::selectLongestForType('ride');
+        $longestRun  = ActivityQueries::selectLongestForType('run');
+        $totalRideDistance = ActivityQueries::sumDistanceForType('ride');
+        $totalRunDistance  = ActivityQueries::sumDistanceForType('run');
+
         return ActivityCollection::make(ActivityQueries::getAll())
             ->additional([
                 'meta' => [
-                    'total_ride_distance' => ActivityQueries::sumDistanceForType('ride'),
-                    'total_run_distance'  => ActivityQueries::sumDistanceForType('run'),
-                    'longest_ride'        => ActivityQueries::selectLongestForType('ride'),
-                    'longest_run'         => ActivityQueries::selectLongestForType('run'),
+                    'total_ride_distance' => $totalRideDistance,
+                    'total_run_distance'  => $totalRunDistance,
+                    'longest_ride'        => ActivityResource::make($longestRide),
+                    'longest_run'         => ActivityResource::make($longestRun),
                 ],
             ])->response();
     }

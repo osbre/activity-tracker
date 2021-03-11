@@ -10,6 +10,11 @@ final class Activity extends Model
 
     public $timestamps = false;
 
+    protected $dates = [
+        'start',
+        'finish',
+    ];
+
     public function scopeLongest($query)
     {
         return $query->orderByDesc('distance');
