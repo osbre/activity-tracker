@@ -5,7 +5,11 @@ module.exports = {
         './resources/**/*.vue',
     ], darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                darkblue: "#2e64f9",
+            },
+        },
     },
     variants: {
         extend: {},
