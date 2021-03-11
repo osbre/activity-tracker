@@ -29,14 +29,16 @@ class ActivityEndpointsTest extends TestCase
         $data = ActivityFaker::new()->make();
 
         $this->post('/api/activities', array_merge($data->toArray(), [
-            'start' => $data->start->format(self::DATETIME_FORMAT),
+            'start'  => $data->start->format(self::DATETIME_FORMAT),
             'finish' => $data->finish->format(self::DATETIME_FORMAT),
         ]))->assertJsonStructure([
-            'id',
-            'type',
-            'start',
-            'finish',
-            'time_spent',
+            'data' => [
+                'id',
+                'type',
+                'start',
+                'finish',
+                'time_spent',
+            ],
         ])->assertStatus(201);
     }
 
@@ -45,7 +47,21 @@ class ActivityEndpointsTest extends TestCase
         $this->get('/api/activities')
             ->assertStatus(200)
             ->assertJsonStructure([
-                ['id', 'type', 'start', 'finish', 'time_spent'],
+                'data' => [
+                    [
+                        'id',
+                        'type',
+                        'start',
+                        'finish',
+                        'time_spent'
+                    ],
+                ],
+                'meta' => [
+                    'total_ride_distance',
+                    'total_run_distance',
+                    'longest_ride',
+                    'longest_run',
+                ],
             ]);
     }
 }

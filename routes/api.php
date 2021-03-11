@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\{ActivityController, StatisticsController};
+use App\Http\Controllers\API\ActivityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('activities', ActivityController::class);//->only('index', 'store');
-Route::get('statistics', [StatisticsController::class, 'index'])->name('statistics');
+Route::apiResource('activities', ActivityController::class)->only('index', 'store');

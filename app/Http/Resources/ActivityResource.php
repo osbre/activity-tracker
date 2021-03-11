@@ -2,11 +2,11 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\{JsonResponse, Request};
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class ActivityResource extends JsonResponse
+class ActivityResource extends JsonResource
 {
-    public function toArray(Request $request): array
+    public function toArray($request): array
     {
         return [
             'id'         => $this->id,
