@@ -10,7 +10,7 @@ final class ActivityQueries
 {
     public static function getAll(): Collection
     {
-        return Activity::orderByDesc('finish')->get();
+        return Activity::orderByDesc('id')->get();
     }
 
     public static function create(ActivityData $data): Activity
